@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sankar</title>
+      <link rel="icon" type="image/png" href="files/icon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-matrix loading">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-main">
+                    <span class="logo-s">S</span>
+                    <span class="logo-text">ANKAR</span>
+                </div>
+                <div class="logo-subtitle">Python Developer</div>
+                <div class="logo-pulse-ring"></div>
+            </div>
+            
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="loading-percentage" id="loadingPercentage">0%</div>
+            </div>
+            
+            <div class="loading-message" id="loadingMessage">Initializing portfolio...</div>
+            
+            <div class="loading-particles">
+                <div class="loading-particle"></div>
+                <div class="loading-particle"></div>
+                <div class="loading-particle"></div>
+                <div class="loading-particle"></div>
+                <div class="loading-particle"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor Follower -->
+    <div class="cursor-follower" id="cursorFollower">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles"></div>
+
+    <!-- Mobile Top Bar -->
+    <nav class="mobile-top-bar" id="mobileTopBar">
+        <div class="mobile-top-container">
+            <div class="mobile-logo">
+                <span class="mobile-logo-text">SANKAR.DEV</span>
+            </div>
+            
+            <div class="mobile-theme-controls">
+                <button class="theme-cycle-btn" id="mobileThemeCycle" title="Cycle Themes">
+                    <i class="fas fa-palette"></i>
+                    <span class="theme-indicator"></span>
+                </button>
+            </div>
+        </div>
+   
+    </nav>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-brand desktop-nav" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">SANKAR.DEV</span>
+                <!-- <div class="logo-pulse"></div> -->
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <button class="nav-btn nav-link active" data-section="home" data-key="1">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-btn nav-link" data-section="about" data-key="2">
+                        <i class="fas fa-user"></i>
+                        <span>About</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-btn nav-link" data-section="skills" data-key="3">
+                        <i class="fas fa-code"></i>
+                        <span>Skills</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-btn nav-link" data-section="projects" data-key="4">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Projects</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-btn nav-link" data-section="contact" data-key="5">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-cycle-btn" id="desktopThemeCycle" title="Cycle Themes">
+                    <i class="fas fa-palette"></i>
+                    <span class="theme-name">Space</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <div class="mobile-nav-track">
+            <div class="mobile-nav-indicator"></div>
+        </div>
+        <div class="mobile-nav-container">
+            <button class="nav-btn mobile-nav-item active" data-section="home">
+                <div class="mobile-nav-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <span class="mobile-nav-text">Home</span>
+                <div class="mobile-nav-ripple"></div>
+            </button>
+            <button class="nav-btn mobile-nav-item" data-section="about">
+                <div class="mobile-nav-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="mobile-nav-text">About</span>
+                <div class="mobile-nav-ripple"></div>
+            </button>
+            <button class="nav-btn mobile-nav-item" data-section="skills">
+                <div class="mobile-nav-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <span class="mobile-nav-text">Skills</span>
+                <div class="mobile-nav-ripple"></div>
+            </button>
+            <button class="nav-btn mobile-nav-item" data-section="projects">
+                <div class="mobile-nav-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <span class="mobile-nav-text">Projects</span>
+                <div class="mobile-nav-ripple"></div>
+            </button>
+            <button class="nav-btn mobile-nav-item" data-section="contact">
+                <div class="mobile-nav-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <span class="mobile-nav-text">Contact</span>
+                <div class="mobile-nav-ripple"></div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Section Progress Indicator -->
+    <div class="section-progress">
+        <div class="progress-dots">
+            <div class="progress-dot active" data-section="home"></div>
+            <div class="progress-dot" data-section="about"></div>
+            <div class="progress-dot" data-section="skills"></div>
+            <div class="progress-dot" data-section="projects"></div>
+            <div class="progress-dot" data-section="contact"></div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="main-container" id="mainContainer">
+        <!-- Home Section -->
+        <section class="section active" id="home">
+            <div class="section-content">
+                <div class="home-grid">
+                    <div class="home-content">
+                        <div class="status-bar">
+                            <span class="status-dot"></span>
+                            <span>Available for hire</span>
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="glitch" data-text="SANKAR">SANKAR</span>
+                        </h1>
+                        <div class="hero-subtitle">
+                            <span class="typing-text" id="typingText">Python Developer</span>
+                            <span class="cursor-blink">|</span>
+                        </div>
+                        <p class="hero-description">
+                            Hello! I'm Sankar, a fresher web developer with a strong interest in building backend systems using Python and Django. I enjoy turning ideas into real working projects and constantly improving my skills through learning and hands-on practice.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" id="DownloadBtn">
+                                <i class="fas fa-rocket"></i>
+                                <span>Resume</span>
+                            </button>
+                            <button class="btn btn-outline" data-section="contact">
+                                <i class="fas fa-envelope"></i>
+                                <span>Let's Connect</span>
+                            </button>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <div class="stat-number">3+</div>
+                                <div class="stat-label">Projects</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">0+</div>
+                                <div class="stat-label">Years</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Dedication</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-interactive">
+                        <div class="code-window">
+                            <div class="window-header">
+                                <div class="window-controls">
+                                    <span class="control close"></span>
+                                    <span class="control minimize"></span>
+                                    <span class="control maximize"></span>
+                                </div>
+                                <div class="window-title">sankar-portfolio.py</div>
+                            </div>
+                            <div class="code-content">
+                                <pre id="codeDisplay"></pre>
+                            </div>
+                        </div>
+                        <div class="floating-elements">
+                            <div class="tech-icon" data-tech="Python"><i class="fab fa-python"></i></div>
+                            <div class="tech-icon" data-tech="Django"><i class="fas fa-cog"></i></div>
+                            <div class="tech-icon" data-tech="Database"><i class="fas fa-database"></i></div>
+                            <div class="tech-icon" data-tech="Git"><i class="fab fa-git-alt"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section" id="about">
+            <div class="section-content">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-info">
+                        <div class="profile-card">
+                            <div class="profile-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user-astronaut"></i>
+                                </div>
+                                <div class="avatar-status"></div>
+                            </div>
+                            <div class="profile-details">
+                                <h3>SANKAR</h3>
+                                <p class="profile-role">Python Developer</p>
+                                <p class="profile-level">Fresher • Entry Level • India</p>
+                                <p class="profile-location"><i class="fas fa-map-marker-alt"></i> India</p>
+                            </div>
+                        </div>
+                        <div class="bio-text">
+                            <p>Hi, I’m Sankar — a fresher web developer who speaks Python more fluently than my alarm clock at 6 a.m. I have a soft spot for Django, clean code, and making sure my database doesn’t run away screaming (thanks, MySQL).</p>
+
+<p>I love taking random ideas, giving them coffee, and turning them into fully functional projects. I’ve built a few personal projects already, and each one taught me two things:</p>
+
+<p>1. Git is my friend (most days).</p>
+
+
+<p>2. Debugging at 2 a.m. counts as cardio.</p>
+
+
+
+<p>While I’m still early in my career, I’m eager to learn from experienced developers, absorb wisdom like a sponge (a clean one, not the kitchen sink kind), and grow into a developer who writes code today that I can still understand tomorrow.</p>
+
+ <p>I also believe good communication and teamwork are just as important as good code — which is why I actually enjoy group discussions, collaborating, and receiving feedback (as long as it comes with snacks).</p>
+
+<p>When I’m not coding, you’ll find me smashing volleyballs, pretending to be a chess grandmaster, traveling, binge-watching movies, or daydreaming about my next project. I’m based in Chennai, proudly from Dharmapuri, and always ready for challenges with a positive (and slightly caffeinated) mindset.</p>
+                        </div>
+                      
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <div class="section-content">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Languages</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Python</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-percentage">70%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="70"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">SQL</span>
+                                    <span class="skill-percentage">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">HTML</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">CSS</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-server"></i> Frameworks</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Django</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Tools</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Git</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">MySQL</span>
+                                    <span class="skill-percentage">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">VS Code</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-graduation-cap"></i> Learning</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">AWS</span>
+                                    <span class="skill-percentage">40%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="40"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Docker</span>
+                                    <span class="skill-percentage">35%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="35"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">REST APIs</span>
+                                    <span class="skill-percentage">60%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="60"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <div class="section-content">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card" data-tech="django python html css javascript">
+                        <div class="project-header">
+                            <div class="project-status completed"></div>
+                            <h3>E - Commerce Website</h3>
+                        </div>
+                        <div class="project-preview">
+                            <div class="preview-placeholder">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p>E - Commerce Website built with Html and web technologies.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sankar-prog/E-Commerce" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                            <a href="https://e-commerce-cia1.vercel.app/" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-tech="django mysql bootstrap">
+                        <div class="project-header">
+                            <div class="project-status progress"></div>
+                            <h3>Bus Ticket Booking</h3>
+                        </div>
+                        <div class="project-preview">
+                            <div class="preview-placeholder">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p>Bus Ticket Booking application with Django and web technologies.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Html</span>
+                                <span class="tech-tag">Css</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sankar-prog/bus-booking" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                          
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-tech="django drf postgresql">
+                        <div class="project-header">
+                            <div class="project-status planned"></div>
+                            <h3>Ai Skin Disease Detection  </h3>
+                        </div>
+                        <div class="project-preview">
+                            <div class="preview-placeholder">
+                                <i class="fas fa-user-doctor"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <p>Ai Skin Disease Detection using Api and web technologies.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Api</span>
+                                <span class="tech-tag">Html</span>
+                                <span class="tech-tag">Css</span>
+                                <span class="tech-tag">JavaScript<span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sankar-prog/Prathap--project" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                                Code
+                            </a>
+                            <a href="https://pro-skin.vercel.app/" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="section-content">
+                <div class="section-header">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <!--<div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>devo.sankar@gmail.com</p>
+                            </div>
+                        </div> -->
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>+91 8438506725</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Availability</h4>
+                                <p>Open to opportunities</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/sankar-prog" class="social-link" target="_blank" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sankar-arumugam-489b76366?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link" target="_blank" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://x.com/ffsankar007?t=MDdm5n6ZYH1pwXztvpMilA&s=09" class="social-link" target="_blank" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                             <a href="https://www.instagram.com/_.sanxxr?igsh=djB1d3I5M2twMWx1" class="social-link" target="_blank" title="Twitter">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="mailto:devo.sankar@gmail.com" class="social-link" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" class="form-control" required placeholder=" ">
+                                <label for="name" class="form-label">Your Name</label>
+                                <div class="form-error" id="nameError"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" class="form-control" required placeholder=" ">
+                                <label for="email" class="form-label">Your Email</label>
+                                <div class="form-error" id="emailError"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" name="subject" class="form-control" required placeholder=" ">
+                                <label for="subject" class="form-label">Subject</label>
+                                <div class="form-error" id="subjectError"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" class="form-control" rows="4" required placeholder=" "></textarea>
+                                <label for="message" class="form-label">Your Message</label>
+                                <div class="form-error" id="messageError"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full-width">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success/Error Messages -->
+    <div id="successMessage" class="message-toast hidden">
+        <i class="fas fa-check-circle"></i>
+        <span>Message sent successfully!</span>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("uyNFuJk9k5zwphzfN"); // Replace with your EmailJS public key
+  })();
+</script>
+
+</body>
+</html>
