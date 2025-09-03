@@ -577,8 +577,8 @@ updateParticleColors() {
   initTypingAnimation() {
     const texts = [
       'Python Developer',
-      'Django Expert',
-      'Backend Specialist',
+      'Django Intermediate',
+      'Backend Intermediate',
       'Problem Solver',
       'Code Enthusiast'
     ];
