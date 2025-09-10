@@ -2243,7 +2243,7 @@ margin-bottom: 1rem;
   color: var(--theme-bg);
   box-shadow: 0 0 15px var(--theme-glow);
 }
-/* .tech-tag {
+.tech-tag {
   background: var(--theme-primary);
   color: var(--theme-bg);
   padding: 0.4rem 0.8rem;
@@ -2252,8 +2252,7 @@ margin-bottom: 1rem;
   font-weight: 500;
   box-shadow: 0 0 10px var(--theme-glow);
   transition: all 0.3s ease;
-} */
-
+}
 .tech-tag:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px var(--theme-glow);
