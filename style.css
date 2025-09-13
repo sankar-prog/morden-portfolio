@@ -1067,12 +1067,12 @@ body.loading {
   background: radial-gradient(circle at center, #260000 0%, #140000 100%);
 }
 .theme-light {
-  --theme-primary: #1a1a1a;       /* Dark text */
+  --theme-primary: #1a1a1a;       /* Main text (dark) */
   --theme-secondary: #444444;     /* Muted text */
-  --theme-accent: #0078d7;        /* Blue accent (customize if needed) */
-  --theme-bg: #ffffff;            /* Main background */
-  --theme-surface: #f2f2f2;       /* Slightly darker surface */
-  --theme-glow: rgba(0, 120, 215, 0.4); /* Accent glow */
+  --theme-accent: #0078d7;        /* Accent (blue) */
+  --theme-bg: #ffffff;            /* Background */
+  --theme-surface: #f2f2f2;       /* Surface / cards */
+  --theme-glow: rgba(0, 120, 215, 0.4);
 
   background: repeating-linear-gradient(
     0deg,
@@ -1081,6 +1081,17 @@ body.loading {
     var(--theme-surface) 2px,
     var(--theme-surface) 4px
   );
+
+  color: var(--theme-primary);   /* ✅ Force text color */
+}
+
+.theme-light a {
+  color: var(--theme-accent);     /* ✅ Links/accented text */
+}
+
+.theme-light p,
+.theme-light span {
+  color: var(--theme-secondary);  /* ✅ Paragraphs/muted text */
 }
 /* Custom Cursor */
 .cursor-follower {
