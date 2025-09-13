@@ -1067,12 +1067,12 @@ body.loading {
   background: radial-gradient(circle at center, #260000 0%, #140000 100%);
 }
 .theme-light {
-  --theme-primary: #111111;          /* Very dark text */
-  --theme-secondary: #333333;        /* Muted text */
-  --theme-accent: #0078d7;           /* Accent (blue) */
-  --theme-bg: #ffffff;               /* Background */
-  --theme-surface: #f5f5f5;          /* Surface / cards */
-  --theme-glow: rgba(0, 120, 215, 0.4);
+  --theme-primary: #111111;          /* Main text: almost black */
+  --theme-secondary: #555555;        /* Secondary text: gray */
+  --theme-accent: #000000;           /* Accent: black (can change to blue/red if you want pop) */
+  --theme-bg: #ffffff;               /* Background: white */
+  --theme-surface: #f4f4f4;          /* Surface/cards: light gray */
+  --theme-glow: rgba(0, 0, 0, 0.15); /* Soft black glow */
 
   background: repeating-linear-gradient(
     0deg,
@@ -1082,16 +1082,26 @@ body.loading {
     var(--theme-surface) 4px
   );
 
-  color: var(--theme-primary) !important; /* 🔥 Force text color */
+  color: var(--theme-primary) !important;
 }
 
-.theme-light * {
-  color: var(--theme-primary) !important; /* 🔥 Apply to all children */
+.theme-bw * {
+  color: var(--theme-primary) !important;   /* Make sure text is visible */
 }
 
-.theme-light a,
-.theme-light .accent {
-  color: var(--theme-accent) !important;  /* Links / accents */
+.theme-bw a,
+.theme-bw .accent {
+  color: var(--theme-accent) !important;    /* Links & accent text */
+}
+
+/* Logo Fix (if using dark logo) */
+.theme-bw img.logo {
+  filter: invert(0) brightness(0) contrast(1); /* Ensures dark logos stay visible */
+}
+
+/* If your logo is dark and disappears on dark surfaces */
+.theme-bw .surface img.logo {
+  filter: invert(1) brightness(2); /* Makes logo white on darker backgrounds */
 }
 /* Custom Cursor */
 .cursor-follower {
