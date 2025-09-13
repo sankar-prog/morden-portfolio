@@ -6,16 +6,14 @@ this.themes = [
   'matrix',
   'space', 
   'ember-core', 
-  'cyber', 
-  'light'
+  'cyber'
 ];
 
 this.themeNames = { 
   cyber: 'Cyber', 
   space: 'Space', 
   matrix: 'Matrix',
-  'ember-core': 'Ember-Core', 
-  'light': 'Light'
+  'ember-core': 'Ember-Core'
 };
     this.currentSection = 'home';
     this.sections = ['home', 'about', 'skills', 'projects', 'contact'];
