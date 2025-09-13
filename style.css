@@ -1067,11 +1067,11 @@ body.loading {
   background: radial-gradient(circle at center, #260000 0%, #140000 100%);
 }
 .theme-light {
-  --theme-primary: #1a1a1a;       /* Main text (dark) */
-  --theme-secondary: #444444;     /* Muted text */
-  --theme-accent: #0078d7;        /* Accent (blue) */
-  --theme-bg: #ffffff;            /* Background */
-  --theme-surface: #f2f2f2;       /* Surface / cards */
+  --theme-primary: #111111;          /* Very dark text */
+  --theme-secondary: #333333;        /* Muted text */
+  --theme-accent: #0078d7;           /* Accent (blue) */
+  --theme-bg: #ffffff;               /* Background */
+  --theme-surface: #f5f5f5;          /* Surface / cards */
   --theme-glow: rgba(0, 120, 215, 0.4);
 
   background: repeating-linear-gradient(
@@ -1082,16 +1082,16 @@ body.loading {
     var(--theme-surface) 4px
   );
 
-  color: var(--theme-primary);   /* ✅ Force text color */
+  color: var(--theme-primary) !important; /* 🔥 Force text color */
 }
 
-.theme-light a {
-  color: var(--theme-accent);     /* ✅ Links/accented text */
+.theme-light * {
+  color: var(--theme-primary) !important; /* 🔥 Apply to all children */
 }
 
-.theme-light p,
-.theme-light span {
-  color: var(--theme-secondary);  /* ✅ Paragraphs/muted text */
+.theme-light a,
+.theme-light .accent {
+  color: var(--theme-accent) !important;  /* Links / accents */
 }
 /* Custom Cursor */
 .cursor-follower {
