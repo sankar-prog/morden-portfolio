@@ -1067,12 +1067,12 @@ body.loading {
   background: radial-gradient(circle at center, #260000 0%, #140000 100%);
 }
 .theme-light {
-  --theme-primary: #111111;          /* Main text: almost black */
-  --theme-secondary: #555555;        /* Secondary text: gray */
-  --theme-accent: #000000;           /* Accent: black (can change to blue/red if you want pop) */
-  --theme-bg: #ffffff;               /* Background: white */
-  --theme-surface: #f4f4f4;          /* Surface/cards: light gray */
-  --theme-glow: rgba(0, 0, 0, 0.15); /* Soft black glow */
+  --theme-primary: #111111;          /* Main text */
+  --theme-secondary: #555555;        /* Muted text */
+  --theme-accent: #000000;           /* Accent */
+  --theme-bg: #ffffff;               /* Background */
+  --theme-surface: #f4f4f4;          /* Surface / cards */
+  --theme-glow: rgba(0, 0, 0, 0.15);
 
   background: repeating-linear-gradient(
     0deg,
@@ -1085,23 +1085,46 @@ body.loading {
   color: var(--theme-primary) !important;
 }
 
+/* ✅ All text defaults */
 .theme-bw * {
-  color: var(--theme-primary) !important;   /* Make sure text is visible */
+  color: var(--theme-primary) !important;
 }
 
-.theme-bw a,
-.theme-bw .accent {
-  color: var(--theme-accent) !important;    /* Links & accent text */
+/* ✅ Navbar + mobile nav fix */
+.theme-bw nav,
+.theme-bw .navbar,
+.theme-bw .mobile-nav,
+.theme-bw .bottom-nav {
+  background-color: var(--theme-bg) !important;   /* White background */
+  border-top: 1px solid #ddd;                     /* Light border for separation */
+  border-bottom: 1px solid #ddd;
+  color: var(--theme-primary) !important;
 }
 
-/* Logo Fix (if using dark logo) */
-.theme-bw img.logo {
-  filter: invert(0) brightness(0) contrast(1); /* Ensures dark logos stay visible */
+/* ✅ Links and nav icons */
+.theme-bw nav a,
+.theme-bw .navbar a,
+.theme-bw .mobile-nav a,
+.theme-bw .bottom-nav a {
+  color: var(--theme-primary) !important;
 }
 
-/* If your logo is dark and disappears on dark surfaces */
+.theme-bw nav a.active,
+.theme-bw .mobile-nav a.active {
+  color: var(--theme-accent) !important;
+  font-weight: bold;
+}
+
+/* ✅ Logos visibility */
+.theme-bw img.logo,
+.theme-bw .navbar img.logo,
+.theme-bw .mobile-nav img.logo {
+  filter: invert(0) brightness(0) contrast(1); /* Dark logo on white bg */
+}
+
+/* If your logo is dark but placed on darker element (like surface card) */
 .theme-bw .surface img.logo {
-  filter: invert(1) brightness(2); /* Makes logo white on darker backgrounds */
+  filter: invert(1) brightness(2); /* Makes it white */
 }
 /* Custom Cursor */
 .cursor-follower {
