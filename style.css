@@ -1066,7 +1066,22 @@ body.loading {
   --theme-glow: #ff4500;
   background: radial-gradient(circle at center, #260000 0%, #140000 100%);
 }
+.theme-light {
+  --theme-primary: #1a1a1a;       /* Dark text */
+  --theme-secondary: #444444;     /* Muted text */
+  --theme-accent: #0078d7;        /* Blue accent (customize if needed) */
+  --theme-bg: #ffffff;            /* Main background */
+  --theme-surface: #f2f2f2;       /* Slightly darker surface */
+  --theme-glow: rgba(0, 120, 215, 0.4); /* Accent glow */
 
+  background: repeating-linear-gradient(
+    0deg,
+    var(--theme-bg) 0px,
+    var(--theme-bg) 2px,
+    var(--theme-surface) 2px,
+    var(--theme-surface) 4px
+  );
+}
 /* Custom Cursor */
 .cursor-follower {
   position: fixed;
