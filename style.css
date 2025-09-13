@@ -1066,13 +1066,16 @@ body.loading {
   --theme-glow: #ff4500;
   background: radial-gradient(circle at center, #260000 0%, #140000 100%);
 }
-.theme-light {
+/* ============================= */
+/* Black & White Theme (theme-bw) */
+/* ============================= */
+.theme-light{
   --theme-primary: #111111;          /* Main text */
   --theme-secondary: #555555;        /* Muted text */
-  --theme-accent: #000000;           /* Accent */
+  --theme-accent: #000000;           /* Accent (black – can change to blue/red if you want pop) */
   --theme-bg: #ffffff;               /* Background */
-  --theme-surface: #f4f4f4;          /* Surface / cards */
-  --theme-glow: rgba(0, 0, 0, 0.15);
+  --theme-surface: #f4f4f4;          /* Cards / panels */
+  --theme-glow: rgba(0, 0, 0, 0.15); /* Subtle glow */
 
   background: repeating-linear-gradient(
     0deg,
@@ -1085,23 +1088,23 @@ body.loading {
   color: var(--theme-primary) !important;
 }
 
-/* ✅ All text defaults */
+/* ✅ Force all text to be visible */
 .theme-bw * {
   color: var(--theme-primary) !important;
 }
 
-/* ✅ Navbar + mobile nav fix */
+/* ✅ Navbar + mobile nav */
 .theme-bw nav,
 .theme-bw .navbar,
 .theme-bw .mobile-nav,
 .theme-bw .bottom-nav {
-  background-color: var(--theme-bg) !important;   /* White background */
-  border-top: 1px solid #ddd;                     /* Light border for separation */
+  background-color: var(--theme-bg) !important;
   border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
   color: var(--theme-primary) !important;
 }
 
-/* ✅ Links and nav icons */
+/* ✅ Nav links & icons */
 .theme-bw nav a,
 .theme-bw .navbar a,
 .theme-bw .mobile-nav a,
@@ -1110,21 +1113,30 @@ body.loading {
 }
 
 .theme-bw nav a.active,
-.theme-bw .mobile-nav a.active {
+.theme-bw .mobile-nav a.active,
+.theme-bw nav a:hover,
+.theme-bw .mobile-nav a:hover {
   color: var(--theme-accent) !important;
   font-weight: bold;
 }
 
-/* ✅ Logos visibility */
+/* ✅ Logo handling */
 .theme-bw img.logo,
 .theme-bw .navbar img.logo,
 .theme-bw .mobile-nav img.logo {
-  filter: invert(0) brightness(0) contrast(1); /* Dark logo on white bg */
+  filter: none !important; /* Keep original logo colors */
 }
 
-/* If your logo is dark but placed on darker element (like surface card) */
+/* If logo is dark but on darker surface, invert it */
 .theme-bw .surface img.logo {
-  filter: invert(1) brightness(2); /* Makes it white */
+  filter: invert(1) brightness(2) !important;
+}
+
+/* ✅ SVG icons */
+.theme-bw svg,
+.theme-bw svg * {
+  fill: var(--theme-primary) !important;
+  stroke: var(--theme-primary) !important;
 }
 /* Custom Cursor */
 .cursor-follower {
